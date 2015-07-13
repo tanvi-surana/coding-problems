@@ -1,0 +1,56 @@
+#include<stdio.h>
+#include<stdlib.h>
+//array implementation
+
+struct stack
+{
+  int top;
+  unsigned int capacity;
+  int* array;
+}
+
+struct stack* createStack(unsigned capacity)
+{
+   struct stack* new_stack=(struct* stack)malloc(sizeof(struct stack));
+   new_stack->top=-1;
+   new_stack->capacity=capacity;
+   new_stack->array=(int*) malloc(new_stack->capacity*sizeof(int)); 
+   return new_stack;
+}
+
+int isFull(struct stack* stack)
+{
+   return stack->top==stack->capacity-1;
+}
+
+int isEmpty(struct stack* stack)
+{
+   return stack->top==-1;
+}
+void push(struct stack* stack,int data)
+{
+  if(isFull(stack))
+  {
+    printf("The stack is full");
+    return;
+  }
+   stack->array[++stack->top]=data;
+   printf("%d pushed into the stack\n",data);
+}
+
+int pop(struct stack* stack)
+{
+  if(isEmpty(stack))
+  { 
+    printf("The stack is empty\n");
+    return;
+  }  
+  printf("The value popped out is %d\n",struct->array[struct->top]);
+  return struct->array[struct->top--]; 
+  
+}
+int main()
+{
+
+   return 0;
+}
